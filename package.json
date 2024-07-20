@@ -1,0 +1,32 @@
+{
+  "name": "employee-management-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "tw:build": "tailwindcss build ./styles/style.css -o ./public/css/bundle.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "The app manages employees information",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "css-loader": "^7.1.2",
+    "electron": "^31.2.0",
+    "express": "^4.19.2",
+    "postcss": "^8.4.39",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^9.6.0",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.4",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7"
+  }
+}

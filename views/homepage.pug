@@ -1,0 +1,17 @@
+extends layouts/layout.pug
+block content
+        div(class="container mx-auto py-4")
+            if edit_message === 'Employee successfully updated' || edit_message === 'Employee deleted successfully'
+                .p-4.mb-4.text-sm.text-green-800.rounded-lg.bg-green-50(class="dark:bg-gray-800 dark:text-green-400", role='alert') #{edit_message}
+            if edit_message === 'Error in updating employee' || edit_message === 'Error in deleting employee'
+                .p-4.mb-4.text-sm.text-red-800.rounded-lg.bg-red-50(class="dark:bg-gray-800 dark:text-red-400", role='alert') #{edit_message}
+            if message === 'No information about employess!'
+                .p-4.mb-4.text-sm.text-red-800.rounded-lg.bg-red-50(class="dark:bg-gray-800 dark:text-red-400", role='alert') #{message}
+            else 
+                each item in items 
+                    div.max-w-sm.p-8.border.border-gray-200.rounded-lg.shadow(class="my-4 bg-yellow-50 dark:bg-gray-800.dark:border-gray-700")
+                        a(href="#")
+                            h5.mb-2.text-2xl.font-semibold.tracking-tight.text-gray-900(class="dark:text-white") #{item.firstname}  #{item.lastname}
+                        p.mb-3.font-normal.text-gray-500(class="dark:text-gray-400") #{item.email}
+                        a.inline-flex.font-medium.items-center.text-green-600(class="hover:underline", href=`/edit-employee/${item.id}`) Edit Employee
+                        a.inline-flex.font-medium.items-center.text-red-600(class="hover:underline px-4", href=`/delete-employee/${item.id}`) Delete Employee  

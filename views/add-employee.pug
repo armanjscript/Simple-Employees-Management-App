@@ -1,0 +1,22 @@
+extends layouts/layout.pug
+block content 
+    if message == 'Employee added'
+        .p-4.mb-4.text-sm.text-green-800.rounded-lg.bg-green-50(class="dark:bg-gray-800 dark:text-green-400", role='alert') Employee Successfuly added.
+    if message == 'Employee exists'
+        .p-4.mb-4.text-sm.text-red-800.rounded-lg.bg-red-50(class="dark:bg-gray-800 dark:text-red-400", role='alert') You can't add employee.
+    
+    form.max-w-md.mx-auto.my-4(action=(message === 'Updating' ? `/edit-employee/${item.id}` : '/add-employee'), method='post')
+        .grid(class="md:grid-cols-2 md:gap-6")
+            .relative.z-0.w-full.mb-5.group
+                input#floating_first_name.block.px-0.w-full.text-sm.text-gray-900.bg-transparent.border-0.border-b-2.border-gray-300.appearance-none(class="py-2.5 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", type='text', name='floating_first_name', placeholder=' ', value=(message === 'Updating' ? item.firstname : '') ,required)
+                label(class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6", for='floating_first_name') First name
+            .relative.z-0.w-full.mb-5.group
+                input#floating_first_name.block.px-0.w-full.text-sm.text-gray-900.bg-transparent.border-0.border-b-2.border-gray-300.appearance-none(class="py-2.5 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", type='text', name='floating_last_name', placeholder=' ', value=(message === 'Updating' ? item.lastname : ''),required)
+                label(class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6", for='floating_first_name') Last name
+        .relative.z-0.w-full.mb-5.group
+            input#floating_email.block.px-0.w-full.text-sm.text-gray-900.bg-transparent.border-0.border-b-2.border-gray-300.appearance-none(class="py-2.5 dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer", type='email', name='floating_email', placeholder=' ', value=(message === 'Updating' ? item.email : '') ,required)
+            label(class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6", for='floating_email') Email address
+        if message === 'Updating'
+            button.text-dark.bg-yellow-100(class="hover:bg-blue-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-6 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800", type='submit') Edit Employee 
+        else 
+            button.text-dark.bg-yellow-100(class="hover:bg-blue-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-6 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800", type='submit') Add new employee 

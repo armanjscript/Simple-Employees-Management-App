@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{title}
+        link(rel="stylesheet", href="/css/bundle.css")
+    body 
+        nav.bg-yellow-50(class="dark:bg-gray-700")
+                .container.mx-auto.py-4
+                    .flex.items-center
+                        ul.flex.flex-row.font-medium.mt-0.space-x-8(class="rtl:space-x-reverse text-sm")
+                            li
+                                a.text-gray-900(class="dark:text-white hover:underline", href='/', aria-current='page') All employees
+                            li
+                                a.text-gray-900(class="dark:text-white hover:underline", href='/add-employee') Add new employee
+        block content
